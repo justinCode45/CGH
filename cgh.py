@@ -5,7 +5,7 @@ import time
 # import screeninfo # pip install screeninfo
 
 # Setup the display window
-fileInputName = "kane.JPG" 
+fileInputName = "in.png" 
 fileOutputName = "hologram_kane.bmp" 
 fileOutputNameFinal = "final.bmp" 
 
@@ -21,7 +21,6 @@ a = 1/(2*Ps) #shift
 
 # Read in target image
 pic1=cv2.imread ( fileInputName,cv2.IMREAD_GRAYSCALE).astype(np.float64)
-print(pic1.shape)
 pic1 = cv2.resize(pic1, (Nx, Ny), interpolation = cv2.INTER_AREA)
 
 
@@ -60,8 +59,8 @@ for N in range(0,cir):
     Norl_recon1 = I_recon1/np.max(np.max(I_recon1))
     Norpic1 = pic1/np.max(np.max(pic1))
     RMS1 = np.sqrt(np.mean(np.mean((Norl_recon1-Norpic1)**2)))
-    # print(N)
-    # print(RMS1)
+    print(N)
+    print(RMS1)
     RMSe.append(RMS1)
 
 # fig = plt.figure()
